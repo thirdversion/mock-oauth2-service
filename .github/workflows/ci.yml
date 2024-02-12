@@ -1,0 +1,48 @@
+name: Continuous integration
+
+on:
+  pull_request:
+    paths-ignore:
+      - "**/*.md"
+      - "**/.vscode/**"
+
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+      - "**/.vscode/**"
+      - "tools/**"
+      - "api/exports/**"
+      - "api/docs/**"
+
+jobs:
+  ci:
+    name: "Continuous Integration"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+          cache: "pip"
+          cache-dependency-path: "**/requirements*.lock"
+
+      - name: Install rye
+        run: |
+          curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
+          echo "$HOME/.rye/shims" >> $GITHUB_PATH
+        shell: bash
+
+      - name: Install dependencies
+        run: rye sync
+        shell: bash
+
+      - name: Lint
+        run: rye run lint
+
+      - name: Format
+        run: rye run format
