@@ -56,5 +56,3 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest,${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.version }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
