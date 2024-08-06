@@ -13,8 +13,8 @@ There are no user credentials, only a form with a button which emulates a 3rd pa
 You can run this service in a docker container by pulling the image from the GitHub Container Registry. Images are tagged with a version number, but you can also use `latest` to get the most recent version.
 
 ```sh
-docker pull ghcr.io/strivesolutions/mock-oauth2-service:latest
-docker run -p 5000:5000 ghcr.io/strivesolutions/mock-oauth2-service:latest
+docker pull ghcr.io/thirdversion/mock-oauth2-service:latest
+docker run -p 5000:5000 ghcr.io/thirdversion/mock-oauth2-service:latest
 ```
 
 ### Sample docker-compose:
@@ -24,7 +24,7 @@ version: "3.9"
 
 services:
   mock-auth:
-    image: ghcr.io/strivesolutions/mock-oauth2-service:latest
+    image: ghcr.io/thirdversion/mock-oauth2-service:latest
     ports:
       - 5000:5000
     environment:

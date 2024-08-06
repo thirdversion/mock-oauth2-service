@@ -1,5 +1,9 @@
 FROM python:3.12-slim
 
+LABEL org.opencontainers.image.source=https://github.com/thirdversion/mock-oauth2-service
+LABEL org.opencontainers.image.description="Mock OAuth2 Server"
+LABEL org.opencontainers.image.licenses=MIT
+
 RUN mkdir /app
 
 COPY requirements.lock /app/requirements.lock
