@@ -1,5 +1,7 @@
 [![Continuous integration](https://github.com/strivesolutions/mock-oauth2-service/actions/workflows/ci.yml/badge.svg)](https://github.com/strivesolutions/mock-oauth2-service/actions/workflows/ci.yml)
 
+Forked from [Strive Solutions](https://github.com/strivesolutions/mock-oauth2-service) by the original authors.
+
 # Mock OAuth Server
 
 This is a simple mock OAuth server that can be used for testing purposes.
